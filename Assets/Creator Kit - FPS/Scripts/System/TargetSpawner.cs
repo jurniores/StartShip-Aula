@@ -25,7 +25,7 @@ public class TargetSpawner : MonoBehaviour
     class SpawnQueueElement
     {
         public GameObject obj;
-        public Target target;
+        public Target_ target;
         public Rigidbody rb;
         public float remainingTime;
         public PathSystem.PathData pathData = new PathSystem.PathData();
@@ -51,7 +51,7 @@ public class TargetSpawner : MonoBehaviour
                     remainingTime = e.timeBetweenSpawn
                 };
                 element.rb = element.obj.GetComponent<Rigidbody>();
-                element.target = element.obj.GetComponentInChildren<Target>();
+                element.target = element.obj.GetComponentInChildren<Target_>();
                 element.obj.SetActive(false);
                 element.obj.transform.position = transform.position;
                 element.obj.transform.rotation = transform.rotation;

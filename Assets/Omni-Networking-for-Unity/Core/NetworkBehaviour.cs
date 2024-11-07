@@ -753,6 +753,8 @@ namespace Omni.Core
 			}
 
 			NetworkManager.OnBeforeSceneLoad += OnBeforeSceneLoad;
+			NetworkManager.OnSceneLoaded += OnSceneLoaded;
+			NetworkManager.OnSceneUnloaded += OnSceneUnloaded;
 		}
 
 		[Conditional("OMNI_DEBUG")]
@@ -802,12 +804,21 @@ namespace Omni.Core
 			}
 
 			OnDestroy();
-			NetworkManager.OnBeforeSceneLoad -= OnBeforeSceneLoad;
 		}
 
-		protected virtual void OnBeforeSceneLoad(Scene scene)
+		protected virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 		{
-			Unregister();
+			NetworkManager.OnSceneLoaded -= OnSceneLoaded;
+		}
+
+		protected virtual void OnSceneUnloaded(Scene scene)
+		{
+			NetworkManager.OnSceneUnloaded -= OnSceneUnloaded;
+		}
+
+		protected virtual void OnBeforeSceneLoad(Scene scene, SceneOperationMode op)
+		{
+			NetworkManager.OnBeforeSceneLoad -= OnBeforeSceneLoad;
 		}
 
 		private void InitializeServiceLocator()

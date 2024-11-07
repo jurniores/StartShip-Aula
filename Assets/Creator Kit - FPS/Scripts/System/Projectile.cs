@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
 
         for (int i = 0; i < count; ++i)
         {
-            Target t = s_SphereCastPool[i].GetComponent<Target>();
+            Target_ t = s_SphereCastPool[i].GetComponent<Target_>();
             
             t.Got(damage);
         }

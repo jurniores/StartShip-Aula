@@ -10,7 +10,7 @@ using UnityEditor;
 /// </summary>
 public class TargetChecker : GameTrigger
 {
-    public Target[] targetsToCheck;
+    public Target_[] targetsToCheck;
 
     void Update()
     {

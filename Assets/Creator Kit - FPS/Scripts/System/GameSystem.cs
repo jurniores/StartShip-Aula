@@ -11,7 +11,7 @@ using UnityEditor.SceneManagement;
 public class GameSystem : MonoBehaviour
 {
     public static GameSystem Instance { get; private set; }
-
+    public Transform playerTransform;
     static int s_CurrentEpisode = -1;
     static int s_CurrentLevel = -1;
     
@@ -139,7 +139,7 @@ public class GameSystem : MonoBehaviour
 
     void RetrieveTargetsCount()
     {
-        var targets = Resources.FindObjectsOfTypeAll<Target>();
+        var targets = Resources.FindObjectsOfTypeAll<Target_>();
 
         int count = 0;
         
@@ -181,11 +181,12 @@ public class GameSystem : MonoBehaviour
             
             GameSystemInfo.Instance.UpdateTimer(m_Timer);
         }
-
-        Transform playerTransform = Controller.Instance.transform;
+        
+        
         
         
         //UI Update
+        if(playerTransform == null) return;
         MinimapUI.Instance.UpdateForPlayerTransform(playerTransform);
        
         if(FullscreenMap.Instance.gameObject.activeSelf)
