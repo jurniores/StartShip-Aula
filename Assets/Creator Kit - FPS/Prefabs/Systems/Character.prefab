@@ -608,6 +608,7 @@ MonoBehaviour:
   FootstepPlayer: {fileID: 4771553560791580875}
   JumpingAudioCLip: {fileID: 8300000, guid: d44cae06e297aa4458bf0a432cdf4f03, type: 3}
   LandingAudioClip: {fileID: 8300000, guid: 80b8397262d56df49828a3b530021dba, type: 3}
+  move: {x: 0, y: 0, z: 0}
   capsulePlayer: {fileID: 4911311294055741798}
   cam: {fileID: 1782824342990945093}
   meshRenderer:
